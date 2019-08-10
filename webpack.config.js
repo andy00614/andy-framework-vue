@@ -8,7 +8,6 @@ module.exports = {
   mode: 'development',
   entry: {
     app: './src/main.js',
-    // print: './src/print.js'
   },
   output: {
     filename: '[name].bundle.js',
@@ -47,7 +46,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Andy framwork',
-      template: './asset/module.html'
+      template: './public/index.html'
     }),
     new CleanWebpackPlugin(),
     new webpack.NamedModulesPlugin(),
