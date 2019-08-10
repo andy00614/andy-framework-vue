@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import styles from '../css/style.css'
 import Img from '../asset/green.jpg'
+import printMe from './print'
 
 function component() {
   const h1 = document.createElement('h1')
@@ -19,3 +20,11 @@ function setImg() {
 
 document.body.appendChild(component())
 document.body.appendChild(setImg())
+
+// printMe()
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('Accepting the updated printMe module!');
+    printMe();
+  })
+}
