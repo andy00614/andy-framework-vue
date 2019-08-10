@@ -2,11 +2,12 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/index.js',
+    app: './src/main.js',
     // print: './src/print.js'
   },
   output: {
@@ -36,6 +37,10 @@ module.exports = {
         use: [
           'file-loader'
         ]
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
@@ -46,6 +51,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new VueLoaderPlugin()
   ]
 }
