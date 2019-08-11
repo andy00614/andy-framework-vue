@@ -24,11 +24,14 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          { loader: 'css-loader', options: {
-            modules: {
-              localIdentName: '[local][hash:base64:5]'
-            },
-          }}
+          {
+            loader: 'css-loader', 
+            options: {
+              modules: {
+                localIdentName: '[local][hash:base64:5]'
+              },
+            }
+          }
         ]
       },
       {
@@ -40,7 +43,22 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
-      }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader', 
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:5]'
+              },
+            }
+          },
+          'sass-loader', // compiles Sass to CSS, using Node Sass by default
+        ],
+      },
     ]
   },
   plugins: [
