@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    {{msg}}
+  <div :class="styles.container">
+    <div :class="styles.title">{{msg}}</div>
   </div>
 </template>
 <script>
@@ -12,3 +12,12 @@ export default {
   }
 }
 </script>
+
+<style module="styles" lang="scss">
+  .container {
+    .title {
+      color: red;
+    }
+  }
+
+</style>
