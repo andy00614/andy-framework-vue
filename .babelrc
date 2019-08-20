@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "@vue/babel-preset-jsx",
+      {
+        "vModel": true,
+        "functional": true,
+        "injectH": true,
+        "vOn": true
+      }
+    ]
+  ]
+}

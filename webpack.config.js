@@ -30,11 +30,6 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader', 
-            // options: {
-            //   modules: {
-            //     localIdentName: '[local][hash:base64:5]'
-            //   },
-            // }
           }
         ]
       },
@@ -44,10 +39,12 @@ module.exports = {
           'file-loader'
         ]
       },
+      
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: ['vue-loader']
       },
+     
       {
         test: /\.scss$/,
         use: [
