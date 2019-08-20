@@ -18,6 +18,10 @@ module.exports = {
     contentBase: './dist',
     hot: true
   },
+  resolve: {
+    enforceExtension: false,
+    extensions: ['.wasm', '.mjs', '.js', '.json','.vue']
+  },
   module: {
     rules: [
       {
@@ -58,7 +62,10 @@ module.exports = {
           },
           'sass-loader', // compiles Sass to CSS, using Node Sass by default
         ],
-      },
+      },{
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader']
+      }
     ]
   },
   plugins: [
